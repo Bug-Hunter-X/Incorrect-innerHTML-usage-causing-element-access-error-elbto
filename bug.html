@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <script>
+    // Incorrectly using innerHTML to replace the entire div content
+    document.getElementById("myDiv").innerHTML = "<p>This text replaces the div content. <span id="nestedSpan">This is a nested span.</span></p>";
+    
+    // Attempting to access the nested span after changing the entire innerHTML. This is inefficient and error-prone
+    // The reference to nestedSpan is lost after innerHTML is set
+    document.getElementById("nestedSpan").style.color = "red"; //This will cause an error
+  </script>
+</body>
+</html>
