@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <script>
+    const myDiv = document.getElementById("myDiv");
+    const newParagraph = document.createElement("p");
+    newParagraph.textContent = "This text replaces the div content.";
+    const newSpan = document.createElement("span");
+    newSpan.textContent = "This is a nested span.";
+    newSpan.style.color = "red";
+    newParagraph.appendChild(newSpan);
+    myDiv.innerHTML = ''; //clear the content
+    myDiv.appendChild(newParagraph);
+
+  </script>
+</body>
+</html>
